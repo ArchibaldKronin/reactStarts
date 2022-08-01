@@ -1,0 +1,80 @@
+.modalWindow {
+    z-index: 1;
+    margin: 10% auto;
+    padding: 0 0 40% 0;
+    width: 50%;
+    background-color: white;
+    border: 2px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.modalWrapper {
+    position: fixed;
+    display: flex;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: rgba(55, 66, 122, 0.3);
+}
+
+.closeModalButtonDiv {
+    display: flex;
+    /* height: fit-content; */
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.closeModalButtonDiv button {
+    width: 15px;
+    height: 15px;
+    padding: 0;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    margin: 10px 10px;
+}
+
+input[type="submit"] {
+    border: none;
+    cursor: pointer;
+    margin: 10px 10px;
+}
+
+
+
+
+
+
+
+.red {
+    background: red;
+    color: wheat;
+    height: 30px;
+}
+
+.green {
+    background: green;
+    color: wheat;
+    height: 40px;
+}
+
+.yellow {
+    background: yellow;
+    color: wheat;
+    height: 50px;
+}
+
+.blue {
+    background: blue;
+    color: wheat;
+    height: 60px;
+}
