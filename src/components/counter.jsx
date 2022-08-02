@@ -14,6 +14,8 @@ export class MainPage extends React.Component {
 
         this.submitModalHandler = this.submitModalHandler.bind(this);
         this.cancelModalHandler = this.cancelModalHandler.bind(this);
+        this.getRequest = this.getRequest.bind(this);
+        this.clearRequestField = this.clearRequestField.bind(this);
     }
 
     openModalHandler = () => {
@@ -37,26 +39,30 @@ export class MainPage extends React.Component {
         })
     }
 
-    getRequest = () => {
-
-        // JSON.stringify(obj, null, 4)
+    getRequest() {
 
         fetch('https://jsonplaceholder.typicode.com/posts')
-            .then(response => response.text)
-            .then(text => {
-                debugger
+            .then(response => response.json())
+            .then(data => {
                 this.setState({
-                    requestedText: text,
+                    requestedText: JSON.stringify(data, null, 4),
                 })
             });
+    }
 
+    clearRequestField() {
 
+        this.setState({
+            requestedText: '',
+        })
     }
 
     render() {
         const modalProps = {
             submitModalHandler: this.submitModalHandler,
-            cancelModalHandler: this.cancelModalHandler
+            cancelModalHandler: this.cancelModalHandler,
+            getRequest: this.getRequest,
+            clearRequestField: this.clearRequestField,
         }
 
         return (
@@ -78,6 +84,16 @@ export class ModalWindow extends React.Component {
         this.state = {
             text: '',
         }
+    }
+
+    componentDidMount() {
+        const { getRequest } = this.props.modalProps;
+        getRequest();
+    }
+
+    componentWillUnmount() {
+        const { clearRequestField } = this.props.modalProps;
+        clearRequestField();
     }
 
     inputChangeHandler(text) {
