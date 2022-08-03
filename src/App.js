@@ -1,13 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
-import { CustomButton } from './components/counter'
-import { CustomButton2 } from './components/counter'
 import { MainPage } from './components/counter'
 import React from 'react';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <MainPage />
     </div>
   );

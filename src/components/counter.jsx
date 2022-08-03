@@ -1,4 +1,3 @@
-import { render } from "@testing-library/react";
 import React from "react";
 import './Counter.css';
 
@@ -87,11 +86,13 @@ export class ModalWindow extends React.Component {
     }
 
     componentDidMount() {
+        document.body.style.overflow = 'hidden';
         const { getRequest } = this.props.modalProps;
         getRequest();
     }
 
     componentWillUnmount() {
+        document.body.style.overflow = 'auto';
         const { clearRequestField } = this.props.modalProps;
         clearRequestField();
     }
