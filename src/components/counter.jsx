@@ -70,7 +70,7 @@ export class MainPage extends React.Component {
                 <p>{this.state.text}</p>
                 <button onClick={this.getRequest}>Сделать запрос на сервер</button>
                 {this.state.isModal && <ModalWindow modalProps={modalProps} />}
-                <p>{this.state.requestedText}</p>
+                <pre>{this.state.requestedText}</pre>
             </div>
         )
     }
